@@ -1,0 +1,416 @@
+---
+
+# 📌 COMPLETE UI DESIGN SYSTEM DOCUMENT
+
+### (Flutter – Light & Dark Theme – Production Ready)
+
+---
+
+⚠️ Important Clarification:
+
+* We are recreating:
+
+  * Color scheme
+  * Typography
+  * Spacing
+  * Shadows
+  * Button styles
+  * Component styling
+  * Overall aesthetic system
+  * Visual hierarchy
+  * Design consistency
+
+The goal is to build a **fully structured, reusable, scalable UI design system** for Flutter.
+
+---
+
+# 2️⃣ OVERALL DESIGN VISION
+
+The UI must feel:
+
+* Modern travel-app inspired
+* Premium SaaS quality
+* Clean and minimal
+* Elegant and soft
+* Slightly futuristic
+* Highly balanced
+* Professional
+* Eye-catching but not flashy
+
+The experience must be:
+
+✔ Organized
+✔ Symmetrical
+✔ Visually balanced
+✔ Soft on the eyes
+✔ Premium
+✔ Smooth in motion
+
+---
+
+# 3️⃣ TYPOGRAPHY SYSTEM
+
+## Font Family
+
+* **Font:** Poppins
+* **Source:** Google Fonts
+* **Style:** Clean, geometric, modern
+
+## Font Weights
+
+* 400 → Regular
+* 500 → Medium
+* 600 → SemiBold
+* 700 → Bold
+
+---
+
+## Font Scale (Responsive Base)
+
+| Usage         | Size | Weight | Letter Spacing |
+| ------------- | ---- | ------ | -------------- |
+| Display Large | 32   | 700    | -0.5           |
+| Heading 1     | 24   | 600    | 0              |
+| Heading 2     | 20   | 600    | 0              |
+| Title         | 18   | 500    | 0              |
+| Body Large    | 16   | 400    | 0.2            |
+| Body Medium   | 14   | 400    | 0.2            |
+| Caption       | 12   | 400    | 0.3            |
+| Button Text   | 16   | 600    | 1.2            |
+
+Typography must feel:
+
+* Minimal
+* Elegant
+* Highly readable
+* Slightly premium
+* Clean hierarchy
+
+---
+
+# 4️⃣ THEME SYSTEM (MANDATORY)
+
+The app must support:
+
+* ✅ Light Theme
+* ✅ Dark Theme
+
+Theme switching must be smooth and consistent.
+
+No hardcoded colors allowed in screens.
+
+All colors must come from centralized design tokens.
+
+---
+
+#  
+
+---
+
+## 🌙 DARK THEME
+
+### Background Colors
+
+* Scaffold Background → `#0F172A`
+* Surface Card → `#1E293B`
+* Input Field → `#1C2433`
+* Bottom Navigation → `#111827`
+* Divider → `#2D3748`
+
+---
+
+### Primary Brand Gradient (CTA Buttons)
+
+* Gradient Start → `#22C55E`
+* Gradient End → `#16A34A`
+
+---
+
+### Text Colors
+
+* Primary Text → `#FFFFFF`
+* Secondary Text → `#CBD5E1`
+* Hint Text → `#94A3B8`
+* Disabled Text → `#64748B`
+
+---
+
+### Status Colors
+
+* Success → `#22C55E`
+* Error → `#EF4444`
+* Warning → `#F59E0B`
+* Info → `#3B82F6`
+
+---
+
+## ☀️ LIGHT THEME
+
+### Background Colors
+
+* Scaffold Background → `#F8FAFC`
+* Surface Card → `#FFFFFF`
+* Input Field → `#F1F5F9`
+* Bottom Navigation → `#FFFFFF`
+* Divider → `#E2E8F0`
+
+---
+
+### Primary Gradient
+
+* Gradient Start → `#22C55E`
+* Gradient End → `#16A34A`
+
+---
+
+### Text Colors
+
+* Primary Text → `#0F172A`
+* Secondary Text → `#475569`
+* Hint Text → `#64748B`
+* Disabled Text → `#94A3B8`
+
+---
+
+# 6️⃣ SPACING SYSTEM (STRICT 8pt GRID)
+
+Only use this spacing scale:
+
+4
+8
+12
+16
+20
+24
+32
+40
+48
+64
+
+---
+
+## Standard Layout Rules
+
+* Screen padding → 24
+* Card padding → 16
+* Button height → 52
+* Input height → 50
+* Standard border radius → 16
+* Large container radius → 24
+
+No random spacing values allowed.
+
+---
+
+# 7️⃣ BORDER RADIUS SYSTEM
+
+Use only:
+
+* 8 → Small elements
+* 12 → Inputs
+* 16 → Buttons
+* 20 → Cards
+* 24 → Large containers
+
+Consistency is mandatory.
+
+---
+
+# 8️⃣ ELEVATION & SHADOW SYSTEM
+
+## Dark Theme Shadow
+
+* Color → Black 40% opacity
+* Blur → 20
+* Offset → (0, 10)
+
+---
+
+## Light Theme Shadow
+
+* Color → Black 10%
+* Blur → 15
+* Offset → (0, 5)
+
+Avoid heavy Material shadows.
+Shadows must be soft and premium.
+
+---
+
+# 9️⃣ BUTTON SYSTEM
+
+## Primary Button (CTA – Example: “Login”, “Book Now”)
+
+* Height → 52
+* Border Radius → 16
+* Background → Green Gradient
+* Text Color → White
+* Font → 16 / 600
+* Horizontal Padding → 24
+
+### States
+
+* Normal → Full gradient
+* Pressed → Slightly darker (5% darker)
+* Disabled →
+
+  * Dark → `#334155`
+  * Light → `#CBD5E1`
+
+---
+
+## Secondary Button
+
+* Transparent background
+* 1.5px border
+* Border color = Gradient Start
+* Text color = Gradient Start
+
+---
+
+# 🔟 INPUT FIELD SYSTEM
+
+* Height → 50
+* Border Radius → 14
+* Filled style
+* No heavy outline
+* Clean modern look
+
+Padding:
+
+* Horizontal → 16
+* Vertical → 14
+
+---
+
+## Input States
+
+| State    | Behavior         |
+| -------- | ---------------- |
+| Normal   | Soft background  |
+| Focus    | 2px green border |
+| Error    | Red border       |
+| Disabled | Lower opacity    |
+
+Focus effect must be elegant, not aggressive.
+
+---
+
+# 1️⃣1️⃣ CARD COMPONENT STYLE
+
+* Radius → 20
+* Padding → 16
+* Background → Surface color
+* Soft shadow
+* Optional glass blur (10) if needed
+
+Cards must feel:
+
+* Floating
+* Clean
+* Spacious
+* Balanced
+
+---
+
+# 1️⃣2️⃣ BOTTOM NAVIGATION
+
+* Height → 70
+* Background → Surface color
+* Selected icon → Green
+* Unselected icon → Secondary text color
+* Active indicator → Small glow or subtle highlight
+
+---
+
+# 1️⃣3️⃣ ICON STYLE
+
+* Stroke-based icons preferred
+* 1.5–2 stroke width
+* Minimal
+* No heavy filled icons unless required
+
+---
+
+# 1️⃣4️⃣ ANIMATION GUIDELINES
+
+Animations must be:
+
+* Smooth
+* Subtle
+* Premium
+* Not flashy
+
+Specifications:
+
+* Duration → 250ms–350ms
+* Curve → easeInOut
+* Button press scale → 0.97
+* Page transition → Fade + slight slide
+
+---
+
+# 1️⃣5️⃣ COMPONENTS THAT MUST FOLLOW THIS SYSTEM
+
+Apply styling consistency to:
+
+* Login Screen
+* Input Fields
+* CTA Buttons
+* Bottom Navigation Bar
+* Cards
+* Rating Stars
+* Profile Avatars
+* Image Preview Containers
+* Map-style Background Sections
+* “Book Now” Button
+
+Everything must follow same tokens and spacing.
+
+---
+
+# 1️⃣6️⃣ DESIGN DISCIPLINE RULES
+
+* No hardcoded colors
+* No random spacing
+* No inconsistent radius
+* No inconsistent shadows
+* No mixing typography styles
+* Use centralized design tokens only
+
+---
+
+# 1️⃣7️⃣ FLUTTER IMPLEMENTATION REQUIREMENTS
+
+Developer must deliver:
+
+* Complete `ThemeData` for Light Theme
+* Complete `ThemeData` for Dark Theme
+* Centralized design tokens file
+* Reusable Button widget
+* Reusable Input widget
+* Reusable Card widget
+* Proper text theme configuration
+* Gradient button component
+* No styling directly inside screens
+
+---
+
+# 1️⃣8️⃣ FINAL GOAL
+
+Build a:
+
+**Beautiful. Premium. Eye-catching. Modern. Minimal. Fully scalable UI system.**
+
+With:
+
+* Light Mode
+* Dark Mode
+* Perfect typography hierarchy
+* Modern color palette
+* Balanced spacing
+* Clean UX
+* Consistent design system
+* Smooth animations
+* Professional structure
+
