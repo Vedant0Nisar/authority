@@ -102,7 +102,12 @@ class TicketDetailController extends GetxController {
     }
   }
 
-  void approveTicket() async {
+  final isPaymentSuccessful = false.obs;
+  String generatedTxnId = '';
+  String paymentDate = '';
+
+  void processPayment() async {
+    if (isApproving.value) return; // Prevent multiple taps
     isApproving.value = true;
 
     // Simulate payment processing UI spinner requirement (from doc)
@@ -111,15 +116,41 @@ class TicketDetailController extends GetxController {
     try {
       final success = await _ticketService.approveTicket(ticketId.value);
       if (success) {
-        Get.back();
-        Get.snackbar('Success', 'Final Payment Processed. Ticket Closed.');
+        generatedTxnId =
+            'TXN${DateTime.now().millisecondsSinceEpoch.toString().substring(5)}';
+        final now = DateTime.now();
+        final hour =
+            now.hour > 12 ? now.hour - 12 : (now.hour == 0 ? 12 : now.hour);
+        final amPm = now.hour >= 12 ? 'PM' : 'AM';
+        paymentDate =
+            '${now.month}/${now.day}/${now.year}, ${hour}:${now.minute.toString().padLeft(2, '0')}:${now.second.toString().padLeft(2, '0')} $amPm';
+
+        isPaymentSuccessful.value = true;
         fetchTicketDetails(); // Reload to show timeline
+      } else {
+        if (Get.isDialogOpen == true) {
+          Get.back(); // safely close dialog
+        }
+        Get.snackbar('Error', 'Approval failed');
       }
     } catch (e) {
+      if (Get.isDialogOpen == true) {
+        Get.back(); // safely close dialog
+      }
       Get.snackbar('Error', 'Approval failed');
     } finally {
       isApproving.value = false;
     }
+  }
+
+  void closePaymentSuccess() {
+    if (Get.isDialogOpen == true) {
+      Get.back(); // close dialog
+    }
+    // Navigate back to the ticket list as the ticket is now closed
+    Future.delayed(const Duration(milliseconds: 300), () {
+      Get.back(); // pop TicketDetailScreen
+    });
   }
 
   void rejectTicket() async {

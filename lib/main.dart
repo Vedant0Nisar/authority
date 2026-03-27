@@ -15,7 +15,7 @@ void main() async {
 
   // Use FlutterSecureStorage for sensitive tokens
   const storage = FlutterSecureStorage();
-
+     
   // Read token to determine initial route naturally
   final token = await storage.read(key: 'jwt_token');
   final String initialRoute =

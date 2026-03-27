@@ -29,10 +29,11 @@ class LoginScreen extends GetView<LoginController> {
                     color: AppColors.gradientStart.withOpacity(0.1),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
-                    LucideIcons.shieldCheck,
-                    size: 75,
-                    color: AppColors.gradientStart,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      "assets/images/road_logo.png",
+                    ),
                   ),
                 ),
               ),
